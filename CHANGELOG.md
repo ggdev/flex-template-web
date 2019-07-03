@@ -14,6 +14,62 @@ way to update this template, but currently, we follow a pattern:
 
 ## Upcoming version 2019-XX-XX
 
+## [v3.0.0] 2019-07-02
+
+- [add] Strong Customer Authentication (SCA) with Stripe's new PaymentIntents flow. This is a big
+  change for checkout flow and includes a madatory transaction process change.
+  [#1089](https://github.com/sharetribe/flex-template-web/pull/1089)
+
+  - You should check [the pull request](https://github.com/sharetribe/flex-template-web/pull/1089)
+  - and read 3 Flex Docs articles:
+    [SCA](https://www.sharetribe.com/docs/background/strong-customer-authentication/),
+    [PaymentIntents](https://www.sharetribe.com/docs/background/payment-intents/), and
+    [How to take PaymentIntents into use](https://www.sharetribe.com/docs/guide/how-to-take-payment-intents-into-use/)
+
+  [v3.0.0]: https://github.com/sharetribe/flex-template-web/compare/v2.17.1...v3.0.0
+
+## [v2.17.1] 2019-06-11
+
+- [fix] `stripeCardToken` didn't update when the user tried to book the same listing for a second
+  time. This update will clear the old cardtoken from Redux store when redirecting to
+  `TransactionPage`. [#1114](https://github.com/sharetribe/flex-template-web/pull/1114)
+- [fix] In `LineItemProviderCommissionMaybe.js` file check that `providerCommissionLineItem` exists.
+  In default transaction process the `providerCommissionLineItem` can be expected to be there but if
+  the process is using only customer commission there will be error.
+  [#1112](https://github.com/sharetribe/flex-template-web/pull/1112)
+- [security] Update Flex SDK version to v1.4.1. The new version updates depencencies with security
+  issues [#1111](https://github.com/sharetribe/flex-template-web/pull/1111)
+- [fix] Fix a bug in showing review links. Because of the bug the second review link was not visible
+  in `ActivityFeed`. [#1106](https://github.com/sharetribe/flex-template-web/pull/1106)
+- [fix] Emptying the priceFilter component in the searchPage caused a page breaking error.
+  [#1101](https://github.com/sharetribe/flex-template-web/pull/1101)
+
+  [v2.17.1]: https://github.com/sharetribe/flex-template-web/compare/v2.17.0...v2.17.1
+
+## [v2.17.0] 2019-05-23
+
+- [change] Mapbox library dependencies updated to v1.0.0.
+  [#1099](https://github.com/sharetribe/flex-template-web/pull/1099)
+  - Note: Mapbox changed their pricing scheme!
+- [fix] missing provider information (like SSN in US), might cause payment to fail on
+  `CheckoutPage`. This improves related error message.
+  [#1098](https://github.com/sharetribe/flex-template-web/pull/1098)
+- [fix] Menu needs to wait for mounting to calculate dimensions properly.
+  [#1096](https://github.com/sharetribe/flex-template-web/pull/1096)
+- [fix] Renamed Component.example.css files to ComponentExample.css to fix bug introduced in one of
+  the library updates. [#1095](https://github.com/sharetribe/flex-template-web/pull/1095)
+- [add] `rawOnly` flag for Styleguide examples using fixed positioning or full-page dimensions.
+  [#1094](https://github.com/sharetribe/flex-template-web/pull/1094)
+- [fix] Show error when typing credit card number if e.g. the number is invalid. Fixes bug that was
+  introduced in PR #1088. [#1092](https://github.com/sharetribe/flex-template-web/pull/1092)
+- [change] Use Final Form on `StripePaymentForm` for consistency. Note that card form Stripe
+  Elements in `StripePaymentForm` is not a Final Form field so it's not available trough Final Form
+  but handled separately. [#1088](https://github.com/sharetribe/flex-template-web/pull/1088)
+- [change] Move Stripe SDK call from `StripePaymentForm` to `stripe.duck.js` for consistency.
+  [#1086](https://github.com/sharetribe/flex-template-web/pull/1086)
+
+  [v2.17.0]: https://github.com/sharetribe/flex-template-web/compare/v2.16.0...v2.17.0
+
 ## [v2.16.0] 2019-05-08
 
 This release makes 2 big updates to `sharetribe-scripts` package (which is our fork from Create
